@@ -3,7 +3,7 @@ import pygame
 
 
 pygame.init()
-pygame.display.set_caption('YUM')
+pygame.display.set_caption('DICE GAME')
 ########### Sounds ##############
 SOUNDSLIB = \
 ('BURGER',
@@ -240,12 +240,12 @@ assert DICEPADDING >= 15, 'DICES TOO BIG FOR OUR SURFACE'
 def initbackground(textandboxY):
     """my background surface"""
     #Title, well centered
-    text = A_FONT.render('ANTICIPE UN YUM', True, BLACK)
+    text = A_FONT.render('DICE GAME OUIN', True, BLACK)
     textrect = text.get_rect()
     textx = int(background.get_rect().centerx - textrect.width / 2)
     background.blit(text, (textx, 10))
     #Write the "Roll" box
-    text = A_FONT.render('ROULE!', True, BLACK)
+    text = A_FONT.render('ROLL IT', True, BLACK)
     roulex = int(background.get_rect().centerx - text.get_rect().width / 2 )
 
     pygame.draw.rect(background, GREEN_YELLOW, (roulex , rouley , text.get_rect().width+ 20, 50), 0)
@@ -433,13 +433,15 @@ while not done:
                     turnend = False
                     wipeboxes(STARTWRITE)                    
                 else:   
-                    turnend = True
+                    
                     wipeboxes(STARTWRITE)
                     #Tentatively write my score in proper field
-                    turnpoints = eval(line[1])
-                    turnline = line
-                    scoretext = H1.render(str(turnpoints), True, BLACK)
-                    background.blit(scoretext, (line[3][0] + 10, line[3][1] + 1))   
+                    if line[4] == None: #If no score was ever written
+                        turnend = True
+                        turnpoints = eval(line[1])
+                        turnline = line
+                        scoretext = H1.render(str(turnpoints), True, BLACK)
+                        background.blit(scoretext, (line[3][0] + 10, line[3][1] + 1))   
                     
     SCREEN.blit(background, (0,0))
     
