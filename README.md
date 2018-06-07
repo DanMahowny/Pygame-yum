@@ -1,4 +1,4 @@
-# Pygame-yum
+# Python-Pygame-yum_clone
 This is a clone of the famous 5 dice game of Yum.
 
 Tested on python 3.6 / Windows 8.1
