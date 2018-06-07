@@ -337,12 +337,12 @@ def printsubtotals():
         elif bflag == False and score != None:
             bottomscore += score
     pygame.draw.rect(background, LIGHT_YELLOW, (325, 315, 150, 65), 0)
-    text = H5.render('Score en haut', True, BLACK)
+    text = H5.render('Upper score', True, BLACK)
     background.blit(text, (330, 320))
     text = H5.render(str(topscore), True, BLACK)
     background.blit(text, (340, 350))
     pygame.draw.rect(background, LIGHT_YELLOW, (325 ,WINDOWHEIGHT - 100 ,150 ,65),0)
-    text = H5.render('Score en bas', True, BLACK)
+    text = H5.render('Lower score', True, BLACK)
     background.blit(text, (330, WINDOWHEIGHT - 95)) 
     text = H5.render(str(bottomscore), True, BLACK)
     background.blit(text, (330, WINDOWHEIGHT - 65))
